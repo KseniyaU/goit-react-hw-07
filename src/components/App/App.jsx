@@ -3,8 +3,8 @@ import { ContactList } from '../ContactList/ContactList.jsx'
 import { SearchBox } from '../SearchBox/SearchBox.jsx'
 import {ContactForm} from '../ContactForm/ContactForm.jsx'
 import { useSelector, useDispatch } from 'react-redux'
-
-
+import { useEffect } from 'react'
+import { fetchTasks } from '../../redux/operations.js'
 
 
 //npm install react-redux
@@ -14,6 +14,12 @@ import { useSelector, useDispatch } from 'react-redux'
 
 
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchTasks());
+  }, [dispatch]);
+
   return (
     <div>
       <h1>Phonebook</h1>

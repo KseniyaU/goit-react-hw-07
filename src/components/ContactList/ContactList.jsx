@@ -1,11 +1,19 @@
 import { Contact } from '../Contact/Contact'
 import css from '../ContactList/ContactList.module.css'
-import { useSelector } from 'react-redux'
-
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchTasks} from '../../redux/operations'
+import { useEffect } from 'react'
 
 export const ContactList = () => {
-    // console.log(typeof(AllContacts));
-    const contacts = useSelector(state => state.contacts.abs);
+    // // console.log(typeof(AllContacts));
+   
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchTasks());
+    }, [dispatch]);
+     const contacts = useSelector(state => state.contacts.items);
+    console.dir(contacts);
     const filterValue = useSelector(state => state.filters);
  
 
@@ -27,4 +35,5 @@ export const ContactList = () => {
         
         </ul>
     </div>
-)}
+)
+}
