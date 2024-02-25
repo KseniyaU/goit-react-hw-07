@@ -24,9 +24,9 @@ export const deleteTask = createAsyncThunk('contacts/deleteContact', async (task
     
 }
 )
-export const addContact = createAsyncThunk('contacts/addContact', async (_, thunkAPI) => {
+export const addContact = createAsyncThunk('contacts/addContact', async (contact, thunkAPI) => {
     try {
-        const response = await axios.post(`https://65d85d83c96fbb24c1bb5b97.mockapi.io/contacts/`)
+        const response = await axios.post(`https://65d85d83c96fbb24c1bb5b97.mockapi.io/contacts/`, contact)
         return response.data;
      } catch (error) {
         return thunkAPI.rejectWithValue(error.message)
