@@ -9,14 +9,14 @@ import css from '../Contact/Contact.module.css'
 
 export const Contact = ({ contact: { id, name, number } }) => {
       const dispatch = useDispatch();
-let contacts
+  
+    
     const onDeleteContact = (id) => {
         dispatch(deleteTask(id));
         dispatch(fetchTasks())
         // console.log(id);
-//         contacts = useSelector(state => state.contacts.items);
  }
-
+//  dispatch(fetchTasks())
 //   useEffect(() => {
 //     dispatch(fetchTasks());
 //   }, [dispatch]);
@@ -30,4 +30,3 @@ let contacts
         </>
     )
 }
-

@@ -13,10 +13,10 @@ export const fetchTasks = createAsyncThunk('contacts/fetchAll', async (_, thunkA
     
 })
 
-export const deleteTask = createAsyncThunk('contacts/deleteContact', async (taskId, thunkAPI) => {
-    // console.log(taskId);
+export const deleteTask = createAsyncThunk('contacts/deleteContact', async (contactId, thunkAPI) => {
+    console.log(contactId);
     try {
-        const response = await axios.delete(`https://65d85d83c96fbb24c1bb5b97.mockapi.io/contacts/${taskId}`);
+        const response = await axios.delete(`https://65d85d83c96fbb24c1bb5b97.mockapi.io/contacts/${contactId}`);
         return response.data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
