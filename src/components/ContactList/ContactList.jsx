@@ -7,13 +7,13 @@ import { useEffect } from 'react'
 export const ContactList = () => {
     // // console.log(typeof(AllContacts));
    
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchTasks());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(fetchTasks());
+    // }, [dispatch]);
      const contacts = useSelector(state => state.contacts.items);
-    console.dir(contacts);
+    console.log(contacts);
     const filterValue = useSelector(state => state.filters);
  
 

@@ -1,19 +1,25 @@
 import { IoPerson } from "react-icons/io5";
 import { IoCall } from "react-icons/io5";
-import { deleteContact } from '../../redux/contactsSlice.js'
-import { useDispatch } from 'react-redux'
-import { deleteTask} from '../../redux/operations.js'
+import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteTask, fetchTasks} from '../../redux/operations.js'
 
 
 import css from '../Contact/Contact.module.css'
 
 export const Contact = ({ contact: { id, name, number } }) => {
       const dispatch = useDispatch();
-
+let contacts
     const onDeleteContact = (id) => {
-    dispatch(deleteTask(id));
-  }
-    
+        dispatch(deleteTask(id));
+        dispatch(fetchTasks())
+        // console.log(id);
+//         contacts = useSelector(state => state.contacts.items);
+ }
+
+//   useEffect(() => {
+//     dispatch(fetchTasks());
+//   }, [dispatch]);
     return (
         <>
             <div>
@@ -24,3 +30,4 @@ export const Contact = ({ contact: { id, name, number } }) => {
         </>
     )
 }
+
